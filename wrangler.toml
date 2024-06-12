@@ -3,3 +3,4 @@ type = "javascript"
 
 [build]
 command = "npm run build"
+pages_build_output_dir = "public"

@@ -1,8 +1,7 @@
 {
-    "name": "webprogramming",
-    "version": "1.0.0",
-    "scripts": {
-      "build": "echo 'No build script defined.'"
-    }
+  "name": "webprogramming",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "mkdir -p public && echo 'Hello, World!' > public/index.html"
   }
-  
+}
