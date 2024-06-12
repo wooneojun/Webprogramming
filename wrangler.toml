@@ -1,0 +1,5 @@
+name = "webprogramming"
+type = "javascript"
+
+[build]
+command = "npm run build"
