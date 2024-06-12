@@ -153,20 +153,20 @@ img {
 }
 
 .Page-container{
-  flex: 1;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 20px;
   box-sizing: border-box;
-  width: 80%;
+  width: 100%;
   margin: auto;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 .photo-container {
   flex: 2 1 40%;
   padding: 10px;
   box-sizing: border-box;
+  width: 47%;
 }
 
 .photo-container img {
@@ -186,6 +186,7 @@ img {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   margin-bottom: 10px;
+  width: 47%;
 }
 
 .gradient-text {
@@ -208,19 +209,15 @@ img {
   background-color: #0056b3;
 }
 
-@media (max-width: 768px) {
-  .container {
+@media (max-width: 700px) {
+  .Page-container {
       flex-direction: column;
       align-items: center;
   }
 
-  .photo-container {
-      flex: 1 1 80%;
+  .photo-container, .text-box {
+      width: 100%;
       margin-bottom: 20px;
-  }
-
-  .text-container {
-      flex: 1 1 80%;
   }
 }
 
