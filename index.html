@@ -13,14 +13,13 @@
 <body>
     <div class="navbar">
         <a href="index.html">Go to homepage</a>
+        <div id="stats-container"></div>
     </div>
     <div class="Container">
-        <!-- last card -->
         <div class="Picture">
             <img class="Picture-img" src="photo/profile.png"/>
             <div class="Picture-note"><span>@wo0onjun <a class="Network" href="https://github.com/wooneojun" target="_top"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="CodePen" /></a><a class="Network" href="https://www.instagram.com/wo0onjun" target="_top"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="twitter" /></a></span></div>
         </div>
-        <!-- other cards -->
         <div class="Picture">
           <a href="Osaka_home.html"><img class="Picture-img" src="photo/Osaka_home.jpeg" alt="" /></a>
           <div class="Picture-note"><span>Osaka</span></div>
@@ -38,5 +37,13 @@
       
 
       <script src="drag.js"></script>
+      <script src="stats.js"></script>
+<script>
+    const tracker = new PageViewTracker(
+        'chois-travel-home',  // 각 페이지별 고유 ID
+        'https://your-api-endpoint.com'  // API Gateway URL
+    );
+    tracker.initialize('stats-container');
+</script>
 </body>
 </html>
