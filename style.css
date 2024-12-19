@@ -260,6 +260,7 @@ img {
 }
 
 #stats-container {
+  float: right;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   padding: 8px 12px;
@@ -268,7 +269,8 @@ img {
 }
 
 .stats-container {
-  text-align: right;
+  text-align: right; /* 부모 요소에서 오른쪽 정렬 */
+  width: 100%; /* 전체 너비를 사용하여 오른쪽 정렬이 적용되도록 함 */
 }
 
 .stat-item {
