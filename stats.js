@@ -5,18 +5,25 @@ class PageViewTracker {
         this.containerEl = null;
         this.updateInterval = null;
     }
-
+ 
     async initialize(containerId) {
         this.containerEl = document.getElementById(containerId);
         await this.trackPageView('enter');
         this.updateInterval = setInterval(() => this.updateStats(), 10000);
-        window.addEventListener('beforeunload', async (event) => {
-            event.preventDefault();
-            await this.trackPageView('exit');
+        
+        window.addEventListener('beforeunload', (event) => {
+            const exitRequest = new XMLHttpRequest();
+            exitRequest.open('GET', `${this.apiEndpoint}?pageId=${this.pageId}&action=exit`, false);  // 동기 요청
+            try {
+                exitRequest.send();
+            } catch (e) {
+                console.error('Failed to send exit request:', e);
+            }
         });
+        
         await this.updateStats();
     }
-
+ 
     async trackPageView(action) {
         try {
             const response = await fetch(
@@ -29,7 +36,7 @@ class PageViewTracker {
             return { activeUsers: 0, totalViews: 0 };
         }
     }
-
+ 
     async updateStats() {
         try {
             const stats = await this.trackPageView('get');
@@ -51,10 +58,10 @@ class PageViewTracker {
             console.error('Failed to update stats:', error);
         }
     }
-
+ 
     destroy() {
         if (this.updateInterval) {
             clearInterval(this.updateInterval);
         }
     }
-}
+ }
